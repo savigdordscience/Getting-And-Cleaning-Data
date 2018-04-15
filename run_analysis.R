@@ -84,5 +84,5 @@ runAnalysis <- function()
                 select(-activity) %>% 
                 group_by(subjectId,activityName) %>% 
                 summarise_all(mean)
-  write.csv(tidyData,"tidydata-Q5.csv")
+  write.table(tidyData,"tidydata-Q5.txt", row.names = FALSE)
 }
