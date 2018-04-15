@@ -1,3 +1,4 @@
+## This function loads a data table into an object
 loadData <- function(wd, subdir, fname, columnsNames, dropColumns)
 {
   library(data.table)
@@ -17,6 +18,8 @@ loadData <- function(wd, subdir, fname, columnsNames, dropColumns)
       return(fread(filespec,col.names = columnsNames, header = FALSE))
 }
 
+
+## compileData - merges all of the data from the test and training file 
 compileData <- function(wd, dataType)
 {
   xFile <- "X_"
@@ -43,6 +46,8 @@ compileData <- function(wd, dataType)
   return (x_data)
 }
 
+## selectCols: This function selects only the columns which describe the mean or standard
+##             deviation as requested in the assignment
 selectCols <- function(df)
 {
   colNames <- names(df)
@@ -52,6 +57,8 @@ selectCols <- function(df)
   return(cols)
 }
 
+
+## runAnalysis: The main function. Calls all of the above functions.
 runAnalysis <- function()
 {
   wd <- "UCI HAR Dataset"
